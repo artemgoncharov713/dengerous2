@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Только если уверена...</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="screen active" id="s1"><div class="card"><div class="ico">⚠️</div><h1>Читай только если уверена</h1><p>После этого пути назад не будет...</p><button onclick="go(1)">Продолжить</button></div></section>
+<section class="screen" id="s2"><div class="card"><div class="ico">👁️</div><h1>Ты уверена?</h1><p>Серьёзно. Подумай ещё раз.</p><button onclick="go(2)">Продолжить</button></div></section>
+<section class="screen" id="s3"><div class="card"><div class="ico">☠️</div><h1>Ты точно уверена?</h1><p>Это может быть опасно...</p><button onclick="go(3)">Продолжить</button></div></section>
+<section class="screen" id="s4"><div class="card"><div class="ico">😈</div><h1>Ну ладна...</h1><p>Видимо, ты действительно уверена.</p><button onclick="go(4)">Продолжить</button></div></section>
+<section class="screen reveal" id="s5"><div class="revealCard">
+<div class="scare">АГААА, ПОПАЛАСЬ 😭</div>
+<div class="photo"><img src="my_photo.jpg" alt="Сюрприз"></div>
+<h2>Ты думала, там Ногар? 🌚</h2>
+<p>А вот и нет.<br>Теперь <b>Я</b> буду у тебя под кроватью ночью 🌚</p>
+<button class="cancel" onclick="removeScare()">Отменить появление</button>
+</div></section>
+<section class="screen" id="s6"><div class="card"><div class="ico">🌚</div><h1>Ладно, отменено</h1><p>Сегодня можешь спокойно спать... наверное 👀</p></div></section>
+<script src="script.js"></script>
+</body></html>
