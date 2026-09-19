@@ -1,0 +1,224 @@
+/* ==========================================================================
+   1. Базовые стили и Сброс (Reset)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background: radial-gradient(circle at 50% 35%, #301722, #0b080a 50%, #000000);
+}
+
+
+/* ==========================================================================
+   2. Контейнеры и Экраны
+   ========================================================================== */
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  opacity: 0;
+}
+
+.screen.active {
+  display: flex;
+  animation: in 0.5s ease forwards;
+}
+
+/* Экран скримера / разоблачения */
+.reveal {
+  background: radial-gradient(circle, #450916 0%, #080306 55%, #000000);
+}
+
+
+/* ==========================================================================
+   3. Карточки
+   ========================================================================== */
+
+.card,
+.revealCard {
+  width: min(430px, 100%);
+  text-align: center;
+  border-radius: 28px;
+}
+
+/* Стандартная карточка */
+.card {
+  padding: 38px 26px;
+  background: rgba(18, 18, 20, 0.82);
+  border: 1px solid #ffffff1c;
+  box-shadow: 0 25px 80px #000000bb;
+  backdrop-filter: blur(16px);
+}
+
+/* Карточка разоблачения / скримера */
+.revealCard {
+  padding: 24px 17px;
+  background: #050507e8;
+  border: 1px solid #ff304d55;
+  animation: scare 0.75s cubic-bezier(0.16, 1.3, 0.35, 1);
+}
+
+
+/* ==========================================================================
+   4. Элементы контента и Типографика
+   ========================================================================== */
+
+.ico {
+  font-size: 65px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(27px, 7vw, 39px);
+  line-height: 1.12;
+  margin-bottom: 16px;
+}
+
+p {
+  color: #d0d0d2;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 27px;
+}
+
+/* Специфичные стили для revealCard */
+.revealCard h2 {
+  font-size: 24px;
+  margin-bottom: 9px;
+}
+
+.revealCard p {
+  color: #eee;
+  margin-bottom: 19px;
+}
+
+.scare {
+  color: #ff304d;
+  font-size: clamp(31px, 9vw, 54px);
+  line-height: 1;
+  font-weight: 950;
+  text-shadow: 0 0 25px #ff1e3c88;
+  margin-bottom: 18px;
+}
+
+
+/* ==========================================================================
+   5. Изображения / Фото
+   ========================================================================== */
+
+.photo {
+  width: min(330px, 84vw);
+  height: min(390px, 55vh);
+  margin: auto auto 17px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 2px solid #ff284855;
+  box-shadow: 
+    0 0 35px #ff143f40,
+    0 20px 50px #000000cc;
+  background: #111111;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: rotate(90deg) scale(1.35);
+}
+
+
+/* ==========================================================================
+   6. Кнопки
+   ========================================================================== */
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7138ff, #a70cff);
+  cursor: pointer;
+}
+
+button.cancel {
+  background: #1b1b1e;
+  border: 1px solid #555555;
+  box-shadow: none;
+}
+
+
+/* ==========================================================================
+   7. Анимации
+   ========================================================================== */
+
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scare {
+  0% {
+    opacity: 0;
+    transform: scale(0.08) rotate(-7deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* ==========================================================================
+   8. Адаптивность (Media Queries)
+   ========================================================================== */
+
+@media (max-width: 500px) {
+  .card {
+    padding: 32px 21px;
+  }
+
+  .revealCard {
+    padding: 21px 14px;
+  }
+
+  .revealCard h2 {
+    font-size: 21px;
+  }
+
+  .revealCard p {
+    font-size: 15px;
+  }
+
+  .photo {
+    height: min(350px, 51vh);
+  }
+
+  button {
+    padding: 15px;
+  }
+}
